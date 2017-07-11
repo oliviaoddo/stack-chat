@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import store, { updateName } from '../store';
+import store, { updateName } from '../store/index';
 
 export default class NameEntry extends Component {
 
@@ -31,7 +31,7 @@ export default class NameEntry extends Component {
           placeholder="Enter your name"
           className="form-control"
           onChange={this.handleChange}
-          value={this.state.name}
+          value={this.state.name.name}
         />
       </form>
     );

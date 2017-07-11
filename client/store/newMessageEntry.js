@@ -4,6 +4,7 @@ const WRITE_MESSAGE = 'WRITE_MESSAGE';
 
 
 export function writeMessage (content) {
+  console.log('updating message change', content);
   const action = { type: WRITE_MESSAGE, content };
   return action;
 }

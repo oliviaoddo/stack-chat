@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import store, { postMessage, writeMessage } from '../store';
+import store, { postMessage, writeMessage } from '../store/index';
 
 export default class NewMessageEntry extends Component {
 
@@ -25,11 +25,11 @@ export default class NewMessageEntry extends Component {
 
   handleSubmit (evt) {
     evt.preventDefault();
-
-    const { name, newMessageEntry } = this.state;
+    const { name } = this.state.name;
+    const { newMessageEntry } = this.state.writeMessage;
     const content = newMessageEntry;
     const { channelId } = this.props;
-
+    console.log("channel ID in post", channelId)
     store.dispatch(postMessage({ name, content, channelId }));
     store.dispatch(writeMessage(''));
   }

@@ -30,7 +30,7 @@ export function fetchMessages () {
 
 
 export function postMessage (message) {
-
+  console.log("new message", message);
   return function thunk (dispatch) {
     return axios.post('/api/messages', message)
       .then(res => res.data)
@@ -38,7 +38,8 @@ export function postMessage (message) {
         const action = getMessage(newMessage);
         dispatch(action);
         socket.emit('new-message', newMessage);
-      });
+      })
+      .catch(console.error);
   }
 
 }
